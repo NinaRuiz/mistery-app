@@ -5,6 +5,7 @@ import {MainConfigurationViewComponent} from './views/main-configuration-view/ma
 import {DashboardViewComponent} from './views/dashboard-view/dashboard-view.component';
 import {NotesNavbarLayoutComponent} from './layouts/notes-navbar-layout/notes-navbar-layout.component';
 import {ConfigurationGuardService} from './authGuard/configuration-guard.service';
+import {LoginViewComponent} from './views/login-view/login-view.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,11 @@ const routes: Routes = [
       {
         path: '',
         component: MainConfigurationViewComponent
+      },
+      {
+        path: 'login',
+        canActivate: [ConfigurationGuardService],
+        component: LoginViewComponent
       }
     ]
   },
@@ -25,7 +31,7 @@ const routes: Routes = [
         path: 'dashboard',
         canActivate: [ConfigurationGuardService],
         component: DashboardViewComponent
-      }
+      },
     ]
   }
 ];

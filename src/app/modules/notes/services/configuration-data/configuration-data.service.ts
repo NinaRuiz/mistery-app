@@ -20,7 +20,7 @@ export class ConfigurationDataService {
     return this.table.add(configuration);
   }
 
-  getConfiguration(): PromiseExtended<ConfigurationModel[]> {
-    return this.table.toArray();
+  getConfiguration(id: number): PromiseExtended<ConfigurationModel> {
+    return this.table.get(id);
   }
 }

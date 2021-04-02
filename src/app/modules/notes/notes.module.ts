@@ -13,10 +13,11 @@ import {FormsModule} from '@angular/forms';
 import { DashboardViewComponent } from './views/dashboard-view/dashboard-view.component';
 import { NotesNavbarLayoutComponent } from './layouts/notes-navbar-layout/notes-navbar-layout.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { LoginViewComponent } from './views/login-view/login-view.component';
 
 
 @NgModule({
-  declarations: [MainConfigurationViewComponent, DashboardViewComponent, NotesNavbarLayoutComponent],
+  declarations: [MainConfigurationViewComponent, DashboardViewComponent, NotesNavbarLayoutComponent, LoginViewComponent],
   imports: [
     CommonModule,
     NotesRoutingModule,
