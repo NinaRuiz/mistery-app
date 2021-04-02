@@ -1,0 +1,83 @@
+<div class="row justify-content-center align-content-center">
+  <div class="col-9">
+    <mat-card class="mat-elevation-z5">
+      <mat-card-header>
+        <mat-card-title>
+          ¡Welcome to the Notes App!
+        </mat-card-title>
+        <mat-card-subtitle>
+          Author: Maria Ruiz Andres
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Here you can configure the note app to work as you want to.
+          Don't worry if you're not sure. This configuration can be
+          changed later.
+        </p>
+        <form>
+          <h3>Security Configuration</h3>
+          <hr>
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Login form:</mat-label>
+            <mat-select [(value)]="this.configuration.securityLoginType">
+              <mat-option value="password">Enter with password</mat-option>
+              <mat-option value="notPassword">Enter without password</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <span *ngIf="this.configuration.securityLoginType === 'password'">
+            <mat-form-field appearance="outline" class="form-input">
+              <mat-label>Password</mat-label>
+              <input [(ngModel)]="this.password" name="password" type="password" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="form-input">
+              <mat-label>Repeat password</mat-label>
+              <input [(ngModel)]="this.repeatPassword" name="repeatPassword" type="password" matInput>
+            </mat-form-field>
+          </span>
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Encoding form:</mat-label>
+            <mat-select [(value)]="this.configuration.securityCodedType">
+              <mat-option value="encoding">Encoding information</mat-option>
+              <mat-option value="notEncoding">Don't encode information</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <span *ngIf="this.configuration.securityCodedType === 'encoding'">
+            <mat-form-field appearance="outline" class="form-input">
+              <mat-label>Secret encoding frase</mat-label>
+              <input [(ngModel)]="this.encodeFrase" name="encodedFrase" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="form-input">
+              <mat-label>Repeat secret encoding frase</mat-label>
+              <input [(ngModel)]="this.repeateEncodeFrase" name="repeatEncodedFrase" matInput>
+            </mat-form-field>
+          </span>
+          <h3>User configuration</h3>
+          <hr>
+          <h4>Select avatar</h4>
+          <mat-grid-list cols="4" rowHeight="1:1">
+            <mat-grid-tile id="avatar01" (click)="this.highlight($event)">
+              <img src="../../../../../assets/avatar01.png" style="width: 50%; height: 50%">
+            </mat-grid-tile>
+            <mat-grid-tile id="avatar02" (click)="this.highlight($event)">
+              <img src="../../../../../assets/avatar02.png" style="width: 50%; height: 50%">
+            </mat-grid-tile>
+            <mat-grid-tile id="avatar03" (click)="this.highlight($event)">
+              <img src="../../../../../assets/avatar03.jpg" style="width: 50%; height: 50%">
+            </mat-grid-tile>
+            <mat-grid-tile id="avatar04" (click)="this.highlight($event)">
+              <img src="../../../../../assets/avatar04.png" style="width: 50%; height: 50%">
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-form-field appearance="outline" class="form-input">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="this.configuration.username" name="username">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-footer style="text-align: end">
+        <button mat-button (click)="onSaveClick()">Save configuration</button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
